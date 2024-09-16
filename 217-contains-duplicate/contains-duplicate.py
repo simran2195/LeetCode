@@ -7,6 +7,7 @@ class Solution:
                 return True
             hashset.add(n)
         return False
+        
         # len_1 = len(nums)
         # len_2 = len(set(nums))
 

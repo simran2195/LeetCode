@@ -18,7 +18,7 @@ class Solution:
                 return
             
             for c in digitToChar[digits[i]]: # if digits[i] == 2, then c in "abc", 
-                backTrack(i + 1, curStr + c)
+                backTrack(i + 1, curStr + c) # from i to the next digit and to curStr add one more current character c
 
         if digits:
             backTrack(0, "")

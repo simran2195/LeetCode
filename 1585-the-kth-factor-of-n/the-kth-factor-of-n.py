@@ -1,3 +1,5 @@
+# 1492. The kth Factor of n 
+# https://leetcode.com/problems/the-kth-factor-of-n/?envType=study-plan-v2&envId=amazon-spring-23-high-frequency
 class Solution:
     def kthFactor(self, n: int, k: int) -> int:
 

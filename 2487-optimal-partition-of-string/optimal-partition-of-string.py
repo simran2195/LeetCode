@@ -8,14 +8,6 @@ class Solution:
         # collections.counter
         # pick max frquency count
 
-        # count = Counter(s)
-        # max_freq = max(count.values())
-
-        # if max_freq > 1:
-        #     return max_freq
-        # else:
-        #     return 1
-
         res = 0
         sub = ''
 

@@ -13,9 +13,13 @@ class Solution:
 
         for char in s:
             if char in sub:
-                sub = ''+char
-                res += 1
+                # If the character is already in the current substring,
+                # we finalize this partition and start a new one.
+                sub = ''+char # Start a new substring with the current character
+                res += 1 # Increment the partition counter
             else:
+                # If the character is not in the current substring,
+                # add it to the substring.
                 sub += char
 
         return res+1

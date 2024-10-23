@@ -27,79 +27,49 @@ class Solution:
         # Validation checks:
         # Same len of arrival and status
         # # 
-    
-        # if len(arrival) != len(state):
-        #     return res
-
-        # n = len(arrival)
-        # answer = [-1] * n # to store the result array
-        # curr_t = 0 # start from time 0
-        # # maintain queues for entry and exit
-        # entry_q, exit_q = deque(), deque()
-        # prev_state = -1  # Track the direction used in the previous second (-1 = no usage, 0 = entry, 1 = exit)
-        # i = 0  # Pointer to iterate over people based on arrival
+        n = len(arrival)
+        entry_q, exit_q = deque(), deque()
+        curr_t = 0 # start from time 0
+        prev_state = 1  # Track the direction used in the previous second (-1 = no usage, 0 = entry, 1 = exit)
+        i = 0  # Pointer to iterate over people based on arrival
+        answer = [0 for _ in range(n)]
 
 
-        # while i < n or entry_q or exit_q:   
-        #     # Add people arriving at the current time to their respective queues
-        #     while i < n and arrival[i] <= curr_t:
-        #         if state[i] == 0:
-        #             entry_q.append(i)
-        #         elif state[i] == 1:
-        #             entry_q.append(i)
-        #         i += 1
-
-        #     # check who gets to use the door
-        #     # If the door was not used in the previous second, then the person who wants to exit goes first.
-        #     if prev_state == 1:
-        #         if exit_q:
-        #             answer[exit_q.popleft()] == curr_t
-        #         elif entry_q:
-        #             answer[entry_q.popleft()] == curr_t
-        #             prev_state = 0
-
-        #     else:
-        #         if entry_q:
-        #             answer[entry_q.popleft()] == curr_t
-        #         elif exit_q:
-        #             answer[exit_q.popleft()] == curr_t
-        #             prev_state = 1
-        #         else:
-        #             prev_state = 1
+        # maintain queues for entry and exit
 
 
-        #     curr_t += 1  # Move to the next second
-
-        # return answer
-
-        enter_pool, exit_pool = deque(),deque()
-        cur_time = 0
-        prev_state = 1
-        i = 0
-        ans = [0 for _ in range(len(arrival))]
-        while i < len(arrival) or enter_pool or exit_pool:
-            while i < len(arrival) and arrival[i] <= cur_time:
+        while i < n or entry_q or exit_q:   
+            # Add people arriving at the current time to their respective queues
+            while i < n and arrival[i] <= curr_t:
                 if state[i] == 0:
-                    enter_pool.append(i)
+                    entry_q.append(i)
                 else:
-                    exit_pool.append(i)
+                    exit_q.append(i)
                 i += 1
+
+            # check who gets to use the door
+            # If the door was not used in the previous second, then the person who wants to exit goes first.
             if prev_state == 1:
-                if exit_pool:
-                    ans[exit_pool.popleft()] = cur_time
-                elif enter_pool:
-                    ans[enter_pool.popleft()] = cur_time
+                if exit_q:
+                    answer[exit_q.popleft()] = curr_t
+                    print(i, curr_t, " added")
+                elif entry_q:
+                    answer[entry_q.popleft()] = curr_t
                     prev_state = 0
+                    print(i, curr_t, " added")
+
             else:
-                if enter_pool:
-                    ans[enter_pool.popleft()] = cur_time
-                elif exit_pool:
-                    ans[exit_pool.popleft()] = cur_time
+                if entry_q:
+                    answer[entry_q.popleft()] = curr_t
+                elif exit_q:
+                    answer[exit_q.popleft()] = curr_t
                     prev_state = 1
                 else:
                     prev_state = 1
-            cur_time += 1
-        return ans
+            curr_t += 1  # Move to the next second
+        return answer
+
+        
 
 
 

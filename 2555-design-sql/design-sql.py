@@ -3,9 +3,22 @@ class SQL:
     def __init__(self, names: List[str], columns: List[int]):
         
         self.tables = {name: {} for name in names}
+        # self.tables = {
+        #     "users": {
+        #         2: ["Bob", "30"]  # Only Bob remains after Alice (ID 1) was deleted
+        #     },
+        #     "orders": {
+        #         1: ["Order1", "Pending", "2024-10-24"],
+        #         2: ["Order2", "Shipped", "2024-10-23"]
+        #     }
+        # }
                 
         # Keep track of the next available row ID for each table.
         self.next_id = {name: 1 for name in names}
+        # self.next_id = {
+        #     "users": 3,   # Even though row ID 1 was deleted, the next row ID will be 3
+        #     "orders": 3   # After inserting two rows, the next row ID will be 3
+        # }
         self.columns = dict(zip(names, columns))
 
 

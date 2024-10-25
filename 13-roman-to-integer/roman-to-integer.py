@@ -13,10 +13,9 @@ class Solution:
 
         for i in range(n):
             # If the current value is less than the next value, subtract it
-            if i < n - 1 and roman_map[s[i]] < roman_map[s[i + 1]]:
+            if i < n-1 and roman_map[s[i]] <  roman_map[s[i+1]]:
                 total -= roman_map[s[i]]
             else:
-                # Otherwise, add the current value
                 total += roman_map[s[i]]
 
         return total

@@ -1,6 +1,8 @@
 # 94. Binary Tree Inorder Traversal
 # https://leetcode.com/problems/binary-tree-inorder-traversal/
 
+#In order: left, root, right
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):

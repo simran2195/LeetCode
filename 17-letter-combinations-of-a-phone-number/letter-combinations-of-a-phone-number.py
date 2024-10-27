@@ -1,32 +1,29 @@
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         res = []
-        digitToChar = {
+        letter_mapping = {
             "2": "abc",
             "3": "def",
             "4": "ghi",
             "5": "jkl",
             "6": "mno",
-            "7": "prqs",
+            "7": "pqrs",
             "8": "tuv",
-            "9": "wxyz",
-        }
+            "9": "wxyz" }
 
-        def backTrack(i, curStr):
+        def backtrack(i, curStr):
             if len(curStr) == len(digits):
+                # the current string is as long as the number of digits
                 res.append(curStr)
                 return
-            
-            for c in digitToChar[digits[i]]: # if digits[i] == 2, then c in "abc", 
-                backTrack(i + 1, curStr + c) # from i to the next digit and to curStr add one more current character c
+
+            for c in letter_mapping[digits[i]]: 
+                backtrack(i+1, curStr+c)
 
         if digits:
-            backTrack(0, "")
+            backtrack(0, "")
 
         return res
 
-
-
-
-
-    
+        
+        

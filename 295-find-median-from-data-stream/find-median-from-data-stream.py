@@ -2,7 +2,8 @@ class MedianFinder:
 
     def __init__(self):
         self.numbers = []
-        
+
+            
     def addNum(self, num: int) -> None:
         # we need to add in an ordered manner to the array
         self.numbers.append(num)

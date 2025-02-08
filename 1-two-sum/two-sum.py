@@ -17,8 +17,8 @@ class Solution:
 
         # Method 2
         # 1 pass using a hashmap
-        # Time complexity:
-        # Space complexity:
+        # Time complexity: O(n)
+        # Space complexity: O(n)
 
         prev_values = {}
         for i, val in enumerate(nums):

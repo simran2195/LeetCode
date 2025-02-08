@@ -4,12 +4,13 @@ class Solution:
         # to lower case
         s = s.lower()
 
-        s_new = ""
+        s_new = []
         #ignore all non-alphanumeric characters
         for c in s:
             if c.isalnum():
-                s_new += c
+                s_new.append(c)
 
+        s_new = "".join(s_new)
         return s_new[::-1] == s_new
 
         # s = s.lower()

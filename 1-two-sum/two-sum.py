@@ -5,15 +5,30 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
 
-        prevMap = {}
+
+        # Method 1
+        # O(n^2) time complexity
+        # Brute Force method
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
+                if nums[i]+nums[j] == target:
+                    return [i, j]
         
-        for i, n in enumerate(nums) :
-            diff = target-n
-            if diff in prevMap:
-                return [prevMap[diff], i]
+        
+        # prevMap = {}
+    
+        # for i, n in enumerate(nums) :
+        #     diff = target-n
+        #     # print("i = ", i, "n = ", n)
+        #     # print("diff = ", diff)
+        #     # print(prevMap) 
+        #     if diff in prevMap:
+        #         # print(prevMap[diff], i)
+        #         return [prevMap[diff], i]
 
-            prevMap[n] = i
+        #     prevMap[n] = i
+        #     # print(f"Added prevMap[{n}] = {i}", "\n" )
 
-        return
+        # return
 
 

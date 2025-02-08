@@ -18,7 +18,7 @@ class Solution:
 
         #ignore all non-alphanumeric characters
         for c in s:
-            if self.isalnumcheck(c):
+            if c.isalnum():
                 s_new += c.lower()
 
         # using two pointers
@@ -32,11 +32,11 @@ class Solution:
         
         return True
 
-    def isalnumcheck(self, c):
-        if (ord(c) >= ord('0') and ord(c) <= ord('9')) or (ord(c) >= ord('a') and ord(c) <= ord('z')) or (ord(c) >= ord('A') and ord(c) <= ord('Z')):
-            return True
-        else:
-            return False
+    # def isalnumcheck(self, c):
+    #     if (ord(c) >= ord('0') and ord(c) <= ord('9')) or (ord(c) >= ord('a') and ord(c) <= ord('z')) or (ord(c) >= ord('A') and ord(c) <= ord('Z')):
+    #         return True
+    #     else:
+    #         return False
 
     
         

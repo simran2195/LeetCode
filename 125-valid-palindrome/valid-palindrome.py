@@ -1,25 +1,36 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
 
+        # to lower case
         s = s.lower()
-        new_s = ""
 
-        # remove all non-alnum chars
-        for char in s:
-            if char.isalnum():
-                new_s += char
+        s_new = ""
+        #ignore all non-alphanumeric characters
+        for c in s:
+            if c.isalnum():
+                s_new += c
 
-        # check for palindrome
+        return s_new[::-1] == s_new
 
-        l, r = 0, len(new_s)-1
+        # s = s.lower()
+        # new_s = ""
 
-        while l < r:
-            if new_s[l] == new_s[r]:
-                l, r = l+1, r-1
+        # # remove all non-alnum chars
+        # for char in s:
+        #     if char.isalnum():
+        #         new_s += char
 
-            else:
-                return False
+        # # check for palindrome
+
+        # l, r = 0, len(new_s)-1
+
+        # while l < r:
+        #     if new_s[l] == new_s[r]:
+        #         l, r = l+1, r-1
+
+        #     else:
+        #         return False
         
-        return True
+        # return True
     
         

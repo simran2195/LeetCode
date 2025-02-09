@@ -1,6 +1,8 @@
 class Solution:
     def findMin(self, nums: List[int]) -> int:
 
+        # Time complexity O(logn)
+        # Space complexity O(1)
         res = nums[0]
         l, r = 0, len(nums) - 1
 

@@ -10,25 +10,22 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
 
+        # BFS
+        # Level order traversal
         res = []
-        q = collections.deque()
+        q = collections.deque()        
         q.append(root)
-        
+
         while q:
-            # iterate through 1 level at a time
-            qLen = len(q)
-            level = []
-            for i in range(qLen):
+            qLen = len(q) #number of elements in a level
+            level = [] # to save elements from that level
+
+            for i in range(qLen): # for elements in a level
                 node = q.popleft()
                 if node:
                     level.append(node.val)
-                    # also add children of this node
                     q.append(node.left)
                     q.append(node.right)
-
             if level:
                 res.append(level)
-        
         return res
-
-        

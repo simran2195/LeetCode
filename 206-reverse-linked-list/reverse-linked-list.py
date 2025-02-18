@@ -6,13 +6,29 @@
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
-        prev, curr = None, head
+        # O(n) time complexity
+        #  Iterative
+        
+        # prev, curr = None, head
+        # while curr:
+        #     nxt = curr.next
+        #     curr.next = prev
+        #     prev = curr
+        #     curr = nxt
 
-        # go till end of list
-        while curr:
-            nxt = curr.next
-            curr.next = prev
-            prev = curr
-            curr = nxt
-        return prev
+        # return prev
+
+        # Recursive
+        if not head:
+            return None
+
+        newHead = head
+        if head.next:
+            newHead = self.reverseList(head.next)
+            head.next.next = head # reverse the link
+        
+        head.next = None
+        return newHead
+
+
         
